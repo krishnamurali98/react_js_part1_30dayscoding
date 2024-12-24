@@ -2,47 +2,40 @@ import React from 'react'
 
 function Form() {
     
-    const [name, setName] = React.useState('')
-    const [email, setEmail] = React.useState('')
-    const [password, setPassword] = React.useState('')
-    const [form, setForm] = React.useState([])
+    // const [name, setName] = React.useState('')
+    // const [email, setEmail] = React.useState('')
+    // const [password, setPassword] = React.useState('')
 
-    
-    const handleName = (e) => {
-        console.log(e.target.value);
-        setName(e.target.value)
-    }
+    const [formData, setFormData] = React.useState({
+        name: '',
+        email: '',
+        password: ''
+    })
 
-    const handleEmail = (e) => {
-        console.log(e.target.value);
-        setEmail(e.target.value)
-    }
-
-    const handlePassword = (e) => {
-        console.log(e.target.value);
-        setPassword(e.target.value)
+    const handleInput = (e) => {
+        const {name, value} = e.target
+        setFormData({...formData, [name]: value})
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setForm([...form, {name, email, password}])
     }
 
   return (
     <form onSubmit={handleSubmit}>
         <label>
             Name: 
-            <input type="text" placeholder="Enter your name" onChange={handleName} value={name}/>
+            <input type="text" name="name" placeholder="Enter your name" onChange={handleInput} value={formData.name}/>
         </label>
         <br /><br />
         <label>
             Email: 
-            <input type="text" placeholder="Enter your email" onChange={handleEmail} value={email}/>
+            <input type="text" name="email" placeholder="Enter your email" onChange={handleInput} value={formData.email}/>
         </label>
         <br /><br />
         <label>
             Password:
-            <input type="password" placeholder="Enter your password" onChange={handlePassword} value={password}/>
+            <input type="password" name="password" placeholder="Enter your password" onChange={handleInput} value={formData.password}/>
         </label>
         <br /><br />
         <button type='submit'> Submt</button>
