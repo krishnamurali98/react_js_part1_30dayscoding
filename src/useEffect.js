@@ -5,9 +5,13 @@ function UseEffect() {
     const [count, setCount] = React.useState(0);
     
     
+    // First return happens and then useEffect runs
     React.useEffect(() => {
-        alert("We are in use State")
-    }, [clicked])
+        console.log("We are in use State")
+        return (() => {
+            console.log("return of use state");
+        })
+    }, [clicked, count])
     
     return (
         <div>
