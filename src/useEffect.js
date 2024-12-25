@@ -1,11 +1,13 @@
 import React from 'react'
 
 function UseEffect() {
+    const [clicked, setClicked] = React.useState();
+    const [count, setCount] = React.useState(0);
+    
+    
     React.useEffect(() => {
         alert("We are in use State")
-    }, [])
-
-    const [clicked, setClicked] = React.useState();
+    }, [clicked])
     
     return (
         <div>
@@ -15,6 +17,11 @@ function UseEffect() {
             <h1>
                 {clicked}
             </h1>
+            <button onClick={() => setCount(count + 1)}>
+                Increment
+            </button>
+            <h1>{count}</h1>
+
         </div>
   )
 }
