@@ -3,7 +3,7 @@ import React from 'react'
 function UseEffect() {
     React.useEffect(() => {
         alert("We are in use State")
-    })
+    }, [])
 
     const [clicked, setClicked] = React.useState();
     
