@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import React, { useReducer } from 'react'
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -24,7 +24,7 @@ export default function App() {
     //  Side effects: Operations like making an API call or logging to the console are considered side effects because they extend beyond returning a new state.
     
 
-    const [state, dispatch] = useReducer(useReducer, {count : 0});
+    const [state, dispatch] = useReducer(reducer, {count : 0});
     
   
   const handleClickInc = () => {
