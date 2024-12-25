@@ -1,27 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { GreetContext, GreetContext2 } from './A'
 
+
+
+
 export default function C() { 
+    const useCon1 = useContext(GreetContext)
+    const useCon2 = useContext(GreetContext2)
     return (
-        <GreetContext.Consumer>
-            {
-                (val) => {
-                    return (
-                        <GreetContext2.Consumer>
-                            {
-                                (val2) => {
-                                    return (
-                                        <div>
-                                            <h1>{val}</h1>
-                                            <h1>{val2}</h1>
-                                        </div>
-                                    );
-                                }
-                            }
-                        </GreetContext2.Consumer>
-                    );
-                }
-            }
-        </GreetContext.Consumer>
+        <h1>Greet : {useCon1} {useCon2} </h1>
   )
 }
